@@ -1,6 +1,8 @@
 # Fixed point binary to decimal (or normal binary)
 bin_num = "0101"
 print(sum([val for pos, val in enumerate([2 ** j for j in range(len(bin_num.split(".")[0]) - 1, (len(bin_num.split(".")[0]) - len(bin_num.replace(".", ""))) - 1, -1)]) if bin_num.replace(".", "")[pos] == "1"]))
+# Alternate
+print(sum([i if pos != 0 else -i for pos, i in enumerate([1/2**i for i in range(-len(bin_num[:bin_num.find(".")]) + 1, len(bin_num[bin_num.find(".") + 1:]) + 1, 1)]) if bin_num.replace(".", "")[pos] == "1"]))
 
 # Mode average
 arr = [1, 1, 2, 2, 2, 2, 1, 1, 1, 2, 3, 4, 5, 5, 6, 5, 5, 5]
